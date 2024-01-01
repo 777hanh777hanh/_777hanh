@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Happy New Year 2024</title>
+
+        <!-- style -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div id="time">
+                <div class="circle" style="--clr: #fff">
+                    <div class="dots dot-day"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="dd"></circle>
+                    </svg>
+                    <div id="days" class="desc">00 <span>Days</span></div>
+                </div>
+
+                <div class="circle" style="--clr: #ff4081">
+                    <div class="dots hr-dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="hh"></circle>
+                    </svg>
+                    <div id="hours" class="desc">00 <span>Hours</span></div>
+                </div>
+
+                <div class="circle" style="--clr: #fee800">
+                    <div class="dots min-dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="mm"></circle>
+                    </svg>
+                    <div id="minutes" class="desc">00 <span>Minutes</span></div>
+                </div>
+
+                <div class="circle" style="--clr: #04fc43">
+                    <div class="dots sec-dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="ss"></circle>
+                    </svg>
+                    <div id="seconds" class="desc">00 <span>Seconds</span></div>
+                </div>
+            </div>
+
+            <div class="text">
+                <h2 class="newYear">2024</h2>
+                <span>Happy New Year</span>
+            </div>
+        </div>
+
+        <!-- script -->
+        <script src="./main.js"></script>
+    </body>
+</html>
