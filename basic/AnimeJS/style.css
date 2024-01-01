@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282828;
+    background-image: linear-gradient(to bottom, #2b1055, #7597de);
+    font-size: 1.6rem;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+}
+
+.img.img-star {
+    top: -300%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img.img-moon {
+    top: -300%;
+    mix-blend-mode: screen;
+}
+
+.img.img-mountains_behind,
+.img.img-mountains_front {
+    bottom: -200%;
+    top: auto;
+}
+
+.img.img-mountains_front {
+    z-index: 9999;
+}
+
+.text {
+    position: absolute;
+    color: #fff;
+    font-size: 4.5vw;
+    font-weight: 400;
+    margin-right: -500%;
+}
+
+.text span {
+    font-weight: 700;
+}
+
+.hero .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 8rem;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    padding: 8px 50px;
+    background-color: #fff;
+    border-radius: 9999px;
+    font-size: 2.4rem;
+    color: #2b1055;
+    text-decoration: none;
+    z-index: 99999;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
