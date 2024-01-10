@@ -1,0 +1,201 @@
+/* reset css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #ccc;
+    --background-color: #282828;
+    --dark-bg-color: #181a1b;
+    --white-color: #fff;
+    --linear-gradient-color: linear-gradient(45deg, #0085ff, #ff4081);
+    --opacity-color: rgba(255, 255, 255, 0.1);
+
+    --font-family: 'JetBrains Mono', monospace;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: var(--font-family);
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* styles */
+
+.container {
+    justify-content: space-around;
+}
+
+.board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin: 0 5rem;
+    background-image: var(--linear-gradient-color);
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.board .drop-box {
+    position: relative;
+    width: 14rem;
+    aspect-ratio: 1/1;
+    border: 0.5rem solid var(--text-color);
+    border-left: transparent;
+    border-bottom: transparent;
+    border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board .drop-box:nth-child(3n) {
+    border-right: transparent;
+}
+
+.board .drop-box:nth-child(1),
+.board .drop-box:nth-child(2),
+.board .drop-box:nth-child(3) {
+    border-top: transparent;
+}
+
+.drop-box div {
+    pointer-events: none;
+}
+
+.drag {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    aspect-ratio: 1/5;
+    gap: 1rem;
+}
+
+.drag .drag-box {
+    padding: 1.5rem;
+    background-color: var(--opacity-color);
+    cursor: grab;
+    border-radius: 0.4rem;
+}
+
+.drop-box .cross,
+.drag-box .cross {
+    position: relative;
+    width: 5rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-box .cross::before,
+.drag-box .cross::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--white-color);
+    transform-style: preserve-3d;
+    transform: rotateZ(45deg);
+    transition: all 1s ease-in-out;
+}
+
+.drop-box .cross::after,
+.drag-box .cross::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--white-color);
+    transform-style: preserve-3d;
+    transform: rotateZ(-45deg);
+    transition: all 1s ease-in-out;
+}
+
+.drop-box .circle,
+.drag-box .circle {
+    position: relative;
+    width: 5rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.drop-box .circle::before,
+.drag-box .circle::before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-color: var(--white-color);
+    border-width: 0.5rem;
+    border-style: solid;
+    transition: all 1s ease-in-out;
+}
+
+.drop-box .circle,
+.drop-box .cross {
+    transform: scale(1.5);
+    transition: all 1s ease-in-out;
+}
+
+.btn {
+    cursor: pointer;
+    position: absolute;
+    bottom: 3rem;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: var(--text-color);
+    outline: none;
+    border: 1px solid var(--white-color);
+    border-radius: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    background-color: transparent;
+
+    background-size: 300% 300%;
+    background-position: 0%;
+    background-image: var(--linear-gradient-color);
+    transition: all 1s ease-in-out;
+}
+
+.btn:hover {
+    animation: gradient 4s linear infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

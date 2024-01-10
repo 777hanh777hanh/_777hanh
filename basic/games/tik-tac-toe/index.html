@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tic-Tac-Toe</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- HTML -->
+        <div class="container">
+            <!-- Cross * 5 -->
+            <div class="drag">
+                <div class="drag-box">
+                    <div class="cross" draggable="true" id="cross-1"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="cross" draggable="true" id="cross-2"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="cross" draggable="true" id="cross-3"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="cross" draggable="true" id="cross-4"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="cross" draggable="true" id="cross-5"></div>
+                </div>
+            </div>
+
+            <!-- Board * 9 -->
+            <div class="board">
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+                <div class="drop-box"></div>
+            </div>
+
+            <!-- Circle * 5 -->
+            <div class="drag">
+                <div class="drag-box">
+                    <div class="circle" draggable="true" id="circle-1"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="circle" draggable="true" id="circle-2"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="circle" draggable="true" id="circle-3"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="circle" draggable="true" id="circle-4"></div>
+                </div>
+                <div class="drag-box">
+                    <div class="circle" draggable="true" id="circle-5"></div>
+                </div>
+            </div>
+
+            <button type="button" class="btn">Reset</button>
+        </div>
+
+        <!-- Script -->
+        <script type="module" src="./main.js"></script>
+    </body>
+</html>
