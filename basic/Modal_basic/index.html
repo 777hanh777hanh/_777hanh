@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- css -->
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <!-- front -->
+                <div class="front">
+                    <div class="front__content">
+                        <div class="front__content__img">
+                            <img
+                                src="https://images.unsplash.com/photo-1568819317551-31051b37f69f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""
+                                class="img"
+                            />
+                        </div>
+                        <div class="front__content__text">
+                            <h1>Front End Developer</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                            </p>
+                            <div class="front__cta">
+                                <button type="button" class="btn">Open Modal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <section class="modal">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__content">
+                        <button type="button" class="modal__close">&times;</button>
+                        <h2 class="h2">This is a modal</h2>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="./main.js"></script>
+    </body>
+</html>

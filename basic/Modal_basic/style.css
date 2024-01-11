@@ -1,0 +1,211 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --text-color: #ccc;
+    --background-color: #282828;
+    --dark-bg-color: #181a1b;
+    --white-color: #fff;
+    --linear-gradient-color: linear-gradient(45deg, #0085ff, #ff4081);
+    --opacity-color: rgba(255, 255, 255, 0.1);
+
+    --font-family: 'JetBrains Mono', monospace;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: var(--font-family);
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* styles */
+.front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.front__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.front__content__img {
+    position: relative;
+    width: 100%;
+    padding-top: 100vh;
+    height: 100px;
+    background-image: url('https://images.unsplash.com/photo-1568819317551-31051b37f69f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: 0 center;
+    background-size: 50%;
+    background-repeat: repeat;
+}
+
+.front__content__img img {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.front__content__text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.4s ease-in-out;
+}
+
+.front__content__text h1 {
+    color: transparent;
+    font-size: 5.2rem;
+    line-height: 1;
+    pointer-events: none;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #ff4081;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.front__content__text p {
+    margin-top: 5rem;
+    font-size: 3rem;
+}
+
+.front__cta {
+    margin-top: 5rem;
+}
+
+.front__cta .btn {
+    --clipPath: 2.8rem;
+
+    position: relative;
+    padding: 2rem 4rem;
+    background-color: #ff4081;
+    color: var(--white-color);
+    font-size: 2rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    clip-path: polygon(
+        var(--clipPath) 0%,
+        100% 0,
+        100% 0%,
+        100% 100%,
+        0 100%,
+        0% var(--clipPath),
+        0rem var(--clipPath)
+    );
+    border-radius: 0.4rem;
+    transition: 0.4s linear;
+}
+
+.front__cta .btn:hover {
+    clip-path: polygon(0rem 0%, 100% 0, 100% 0%, 100% 100%, 0 100%, 0% 0rem, 0rem 0rem);
+}
+
+.front__cta .btn::after {
+    content: '';
+    position: absolute;
+    aspect-ratio: 1/1;
+    top: 0;
+    left: 0;
+    border-style: solid;
+    border-width: calc(var(--clipPath) / 2);
+    border-color: transparent rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) transparent;
+    border-radius: 0.4rem;
+    box-shadow: 0 0rem 0.5rem 0.2rem rgba(0, 0, 0, 0.3);
+    transition: 0.4s linear;
+}
+
+.front__cta .btn:hover::after {
+    border-width: 0rem;
+}
+
+/* Modal */
+
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    transition: 0.4s linear;
+}
+
+.modal .modal__overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.modal .modal__content {
+    background-color: #ff4081;
+    position: relative;
+    display: flex;
+    width: min(calc(100% - 42px), 840px);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    aspect-ratio: 1/1;
+    font-size: 3rem;
+    line-height: 0;
+    color: var(--white-color);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal__close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
