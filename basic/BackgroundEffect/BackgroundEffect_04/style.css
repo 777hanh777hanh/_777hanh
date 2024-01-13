@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeSpeed;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    background-color: #282828;
+    min-width: 100vh;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* styles */
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg .bubbles {
+    display: flex;
+    position: relative;
+    column-gap: 4rem;
+    justify-content: space-between;
+}
+
+.bg .bubble {
+    --clr: #00ffff;
+
+    position: relative;
+    min-width: 3rem;
+    height: 3rem;
+    background-color: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 0.5rem var(--clr), 0 0 1rem var(--clr), 0 0 2rem var(--clr), 0 0 4rem var(--clr);
+    animation-name: animate;
+    animation-duration: calc(75s / var(--i));
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.bg .bubble:nth-child(even) {
+    --clr: #ff0481;
+}
+
+@keyframes animate {
+    0% {
+        translate: 0 100vh;
+        scale: 0.1;
+    }
+
+    100% {
+        translate: 0 -10vh;
+    }
+}
+
+.header {
+    /* position: relative; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    backdrop-filter: blur(1rem);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 1.6rem 1.8rem;
+    text-decoration: none;
+    color: #00ffff;
+    cursor: default;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar li {
+    padding: 1.6rem 1.8rem;
+}
+
+.navbar .link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar .link:hover,
+.navbar .link.active {
+    color: #ff0481;
+    transition: 0.2s ease-in;
+}
+
+.navbar .link.active {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
+main {
+    flex: 1;
+    justify-self: flex-end;
+}
+
+.home {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading {
+    color: #fff;
+    font-weight: 600;
+    font-size: 6.2rem;
+}
+
+.title {
+    margin-top: 4rem;
+    font-size: 4rem;
+    color: #00ffff;
+    font-weight: normal;
+}
+
+.title .highlight {
+    background-color: transparent;
+    color: #ff0481;
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+.text {
+    margin-top: 2rem;
+    width: min(80rem, calc(100% - 4.2rem));
+    color: #ddd;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.text:first-letter {
+    margin-left: 5rem;
+}
+
+.cta {
+    margin: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4rem;
+}
+
+.btn {
+    --clr: #fff;
+
+    cursor: pointer;
+    padding: 1.8rem 3.2rem;
+    min-width: 18rem;
+    outline: none;
+    text-align: center;
+    border: 1px solid var(--clr);
+    color: var(--clr);
+    background-color: transparent;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
+    border-radius: 0.3rem;
+    transition: color 0.15s ease-in-out, background-color 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+.btn.active {
+    --clr: #282828;
+
+    background-color: #00ffff;
+}
