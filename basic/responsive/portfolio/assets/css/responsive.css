@@ -1,0 +1,46 @@
+@media screen and (max-width: 1110.98px) {
+    .banner::before {
+        opacity: 0;
+    }
+
+    .banner .img {
+        color: var(--bg-color);
+        text-shadow: 0rem 0rem 0.5rem var(--primary-color);
+        right: -10rem;
+    }
+
+    .banner .menu {
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .banner .content .contentBox .h2 {
+        font-size: 3rem;
+    }
+
+    .banner .content .contentBox .h3 {
+        font-size: 2rem;
+    }
+
+    .content .contentBox .cta .btn {
+        min-width: 11rem;
+        text-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 576.98px) {
+    .container .header {
+        backdrop-filter: blur(10px);
+        border-bottom: 0.1rem solid var(--white-opacity);
+    }
+
+    .container .banner {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 375.98px) {
+    .content .contentBox .cta {
+        flex-wrap: wrap;
+    }
+}
