@@ -1,0 +1,191 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-rendering: optimizeSpeed;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: serif;
+    background-color: #282828;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    width: 100%;
+    min-height: 100vh;
+}
+
+button,
+[href] {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn {
+    --path: 0.8rem;
+    --clr: rgba(255, 64, 129, 1);
+    --clr-side: rgba(255, 64, 129, 0.7);
+    --clr-dark: rgba(255, 64, 129, 0.5);
+    --clr-shadow: rgba(0, 0, 0, 0.8);
+
+    position: relative;
+    padding: 1.2rem 1.8rem;
+    min-width: 24.6rem;
+    min-height: 10.45rem;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.btn--clip-path {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr);
+
+    clip-path: polygon(
+        var(--path) 0,
+        calc(100% - var(--path)) 0,
+        100% var(--path),
+        100% calc(100% - var(--path)),
+        calc(100% - var(--path)) 100%,
+        var(--path) 100%,
+        0 calc(100% - var(--path)),
+        0 var(--path),
+        var(--path) 0
+    );
+}
+.btn--clip-path::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.1vh;
+    width: var(--path);
+    height: 0.1rem;
+    background-color: #000;
+    transform: skewY(-45deg);
+}
+.btn--clip-path::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0.2rem;
+    width: var(--path);
+    height: 0.1rem;
+    background-color: #000;
+    transform: skewY(45deg);
+}
+
+.btn--3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(50deg);
+    transition: 0.2s;
+}
+
+.btn-texture {
+    --height: calc(2 * var(--path));
+
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: calc(100% - 2 * var(--path));
+    height: var(--height);
+    transform: translateX(-50%);
+    background-color: var(--clr-dark);
+    transition: 0.2s;
+}
+.btn-texture::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: var(--path);
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: skewY(45deg) translateY(calc(var(--path) / -2));
+    background-color: var(--clr-side);
+
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+.btn-texture::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: var(--path);
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: skewY(-45deg) translateY(calc(var(--path) / -2));
+    background-color: var(--clr-side);
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+.btn-texture__shadow {
+    --height: calc(var(--path) * 2);
+
+    position: absolute;
+    top: calc(100% - var(--path));
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% var(--height),
+        calc(100% - var(--path) * 2) 100%,
+        calc(100% - var(--path) * 2) 100%,
+        calc(var(--path) * 2) 100%,
+        0 var(--height)
+    );
+
+    background-color: var(--clr-shadow);
+    z-index: -1;
+    transition: 0.2s;
+}
+
+/* animate */
+
+.btn.btn--active {
+    transform: translateY(0.6rem) rotateX(50deg);
+}
+.btn.btn--active .btn-texture {
+    --height: 0.6rem;
+}
+.btn.btn--active .btn-texture__shadow {
+    --height: 0.6rem;
+    height: 25%;
+}
+
+.btn:nth-child(2) {
+    --clr: rgba(0, 255, 255, 1);
+    --clr-side: rgba(0, 255, 255, 0.7);
+    --clr-dark: rgba(0, 255, 255, 0.5);
+}
+
+.btn:nth-child(3) {
+    --clr: rgba(255, 0, 0, 1);
+    --clr-side: rgba(255, 0, 0, 0.7);
+    --clr-dark: rgba(255, 0, 0, 0.5);
+}

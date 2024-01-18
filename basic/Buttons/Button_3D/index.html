@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Button 3D</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <button type="button" class="btn btn--3d">
+                <span class="btn--clip-path">Button</span>
+                <div class="btn-texture"></div>
+                <div class="btn-texture__shadow"></div>
+            </button>
+            <button type="button" class="btn btn--3d">
+                <span class="btn--clip-path">Button</span>
+                <div class="btn-texture"></div>
+                <div class="btn-texture__shadow"></div>
+            </button>
+            <button type="button" class="btn btn--3d">
+                <span class="btn--clip-path">Button</span>
+                <div class="btn-texture"></div>
+                <div class="btn-texture__shadow"></div>
+            </button>
+        </div>
+
+        <script>
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    btn.classList.toggle('btn--active');
+                });
+            });
+        </script>
+    </body>
+</html>
