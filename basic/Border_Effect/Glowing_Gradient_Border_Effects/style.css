@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeSpeed;
+}
+
+:root {
+    --border-color: repeating-linear-gradient(from 0deg, #0f0, #ff0, #0ff, #f0f, #f00);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: #282828;
+    color: #e1e1e1;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    width: 60rem;
+    height: 20rem;
+    /* box's border-radius + space of content with box */
+    border-radius: calc(2rem + 0.4rem);
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-conic-gradient(from var(--deg), #0f0, #ff0, #0ff, #f0f, #0f0);
+    border-radius: inherit;
+    animation: rotating 5s linear infinite;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-conic-gradient(from var(--deg), #0f0, #ff0, #0ff, #f0f, #0f0);
+    border-radius: inherit;
+    animation: rotating 5s linear infinite;
+    opacity: 0.7;
+    filter: blur(4rem);
+}
+
+.content {
+    position: absolute;
+    inset: 0.4rem;
+    background-color: #282828;
+    border-radius: 2rem;
+    z-index: 1;
+}
+
+.box-inner {
+    position: absolute;
+    width: 70%;
+    height: 200%;
+}
+
+.box-inner > .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* background-image: 
+        repeating-conic-gradient(
+            from var(--deg), 
+            #0f0, #ff0, #0ff, #f0f, #0f0
+        ); 
+*/
+@property --deg {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotating {
+    0% {
+        --deg: 0deg;
+    }
+    100% {
+        --deg: 360deg;
+    }
+}
