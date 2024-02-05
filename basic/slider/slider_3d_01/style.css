@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.slider {
+    position: relative;
+    width: 24rem;
+    height: 32rem;
+    transform-style: preserve-3d;
+    transform: perspective(100rem) rotateY(270deg);
+    transition: 1.5s;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    background-color: #2228;
+    z-index: 10;
+    transform: translateY(24rem) rotateX(90deg) scale(1.1);
+    filter: blur(4rem);
+}
+
+.slider .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #ddd, #eee);
+    transform-style: preserve-3d;
+    /* translateZ == 1/2 width of card */
+    transform: rotateY(calc(var(--i) * 90deg)) translateZ(12rem);
+}
+
+.slider .card .img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 24rem;
+}
+
+.img-wrapper .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card .info {
+    position: relative;
+    top: 1rem;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    transform: translateZ(3rem);
+    backface-visibility: hidden;
+}
+
+.card .info .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.card .info .desc {
+    font-size: 1.2rem;
+    color: #ff4081;
+    transform-style: preserve-3d;
+    transform: translateZ(0.1rem);
+    backface-visibility: hidden;
+}
+
+/* Buttons */
+
+.btns {
+    position: absolute;
+    display: flex;
+    gap: 3rem;
+    bottom: 3rem;
+    z-index: 9999;
+}
+
+.btns .btn {
+    position: relative;
+    display: flex;
+    width: 6rem;
+    height: 6rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0.1rem solid #333;
+    cursor: pointer;
+}
+
+.btns .btn:active {
+    background: #333;
+}
+
+.btns .btn:active::before {
+    border-color: #ccc;
+}
+
+.btns .btn::before {
+    position: absolute;
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    border-top: 0.3rem solid #333;
+    border-right: 0.3rem solid #333;
+    transform: translate(-35%, 0) rotate(45deg);
+}
+
+.btns .btn.btn--prev::before {
+    transform: translate(35%, 0) rotate(-135deg);
+}
