@@ -1,0 +1,32 @@
+@media screen and (max-width: 900.98px) {
+    .slider {
+        inset: 4rem 4rem 20rem 4rem;
+    }
+
+    .slider .slides {
+        width: 10rem;
+        height: 10rem;
+        top: initial;
+        bottom: -20rem;
+    }
+
+    .slider .slides:nth-child(1),
+    .slider .slides:nth-child(2) {
+        top: initial;
+        bottom: 0;
+    }
+
+    .slider .slides:nth-child(3) {
+        left: 0;
+    }
+    .slider .slides:nth-child(4) {
+        left: 12rem;
+    }
+    .slider .slides:nth-child(5) {
+        left: 24rem;
+    }
+    .slider .slides:nth-child(6) {
+        left: 38rem;
+        opacity: 0;
+    }
+}
