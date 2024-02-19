@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+    background-color: #282828;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    position: relative;
+    line-height: 1.6;
+    font-size: 20rem;
+    background-image: linear-gradient(90deg, #ff0, #f0f, #0ff, #f00, #0f0, #00f, #ff0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    letter-spacing: 1.2rem;
+    -webkit-text-stroke: 1.2rem transparent;
+    color: #282828;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    animation: colorRun 2s linear infinite;
+    will-change: background-position-x;
+}
+.text:before,
+.text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: -3rem;
+    left: -3rem;
+    line-height: 1.6;
+    font-size: 20rem;
+    background-image: linear-gradient(90deg, #ff0, #f0f, #0ff, #f00, #0f0, #00f, #ff0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    letter-spacing: 1.2rem;
+    -webkit-text-stroke: 1.2rem transparent;
+    color: #282828;
+    z-index: -1;
+    opacity: 0.3;
+
+    animation: colorRun 2s linear infinite;
+    will-change: background-position-x;
+}
+
+.text::after {
+    top: -6rem;
+    left: -6rem;
+    z-index: -2;
+    opacity: 0.1;
+}
+
+/* @keyframes colorRun {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 895.4375px;
+    }
+} */

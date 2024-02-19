@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Text Effect 02</title>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text" data-text="777hanh">777hanh</h1>
+        </div>
+
+        <script>
+            const text = document.querySelector('.text');
+            const textWidth = text.getBoundingClientRect().width;
+
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = `
+            @keyframes colorRun {
+                0% {
+                    background-position-x: 0;
+                }
+                100% {
+                    background-position-x: ${textWidth}px;
+                }
+            }`;
+
+            document.head.appendChild(style);
+
+            const slideBackgroundColor = (duration) => {};
+
+            slideBackgroundColor(1000);
+        </script>
+    </body>
+</html>
