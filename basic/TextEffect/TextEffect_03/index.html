@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Text Effect 03 - Scroll Animation</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="title">777hanh</h2>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2020">2020</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2021">2021</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2022">2022</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2023">2023</h2>
+            </div>
+            <div class="text-wrapper current-date">
+                <h2 class="text" data-text="2024">2024</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2025">2025</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2026">2026</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2027">2027</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2028">2028</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2029">2029</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="2030">2030</h2>
+            </div>
+            <div class="text-wrapper">
+                <h2 class="text" data-text="...">...</h2>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // get all .text elements
+            let items = document.querySelectorAll('.text-wrapper');
+
+            function reveal() {
+                for (let i = 0; i < items.length; i++) {
+                    let item = items[i];
+                    let positionFromTop = item.getBoundingClientRect().top;
+
+                    if (Math.ceil(window.innerHeight + window.scrollY) < document.body.offsetHeight) {
+                        if (positionFromTop < window.innerHeight / 2.5) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    } else {
+                        items.forEach((item) => {
+                            item.classList.add('active');
+                        });
+                    }
+                }
+            }
+
+            // initialize
+            reveal();
+
+            // listen for scroll event
+            window.addEventListener('scroll', reveal);
+        </script>
+    </body>
+</html>
